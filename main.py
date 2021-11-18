@@ -5,7 +5,7 @@ from PIL import ImageFont
 import os
 
 def generate_barcode_image(code):
-  barcode_image = code128.image(code, height=150, thickness = 2, quiet_zone=True)
+  barcode_image = code128.image(code, height=100, thickness = 2, quiet_zone=True)
 
   w, h = barcode_image.size
   new_h = h + 90
@@ -26,8 +26,8 @@ lines = codes.readlines()
  
 for line in lines:
   print(line)
-  if os.path.exists(line + ".png"):    
-    os.remove(line + ".png")
+  # if os.path.exists(line + ".png"):    
+  #   os.remove(line + ".png")
   generate_barcode_image(line.strip())
 
 print("Hotovo!")
